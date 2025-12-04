@@ -1,0 +1,23 @@
+app = "vidarbot"
+primary_region = "cdg"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  PORT = "8080"
+  TOKEN = "8233298125:AAFcEVZx8DJo6SnhfvYbACIsd9Z6ktqYErE"
+  CHAT = "7050127823"
+
+[[services]]
+  internal_port = 8080
+  protocol = "tcp"
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]
+
+[[services.ports]]
+  port = 8080
+  handlers = ["http"]
+  force_https = true
